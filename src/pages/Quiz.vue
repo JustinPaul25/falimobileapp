@@ -23,12 +23,13 @@
               <q-btn @click="nextQuestion()" class="q-ml-auto full-width" color="primary" label="Next" :size="'lg'" />
             </div>
             <div class="q-my-sm" v-else>
+              <q-btn @click="submitAnswer()" class="q-ml-auto full-width" color="primary" label="Submit Answers" :size="'lg'" />
               <div class="q-my-sm">
-                <p class="text-center text-white text-weight-bold text-h4">
-                  Quiz Finished!<br> Press Submit
-                </p>
+                <img style="display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;" src="https://media.giphy.com/media/U7helkiPxHjsY5bs5h/source.gif" alt="this slowpoke moves"  width=250/>
               </div>
-              <q-btn @click="submitAnswer()" class="q-ml-auto full-width" color="primary" label="Submit" :size="'lg'" />
             </div>
           </div>
         </div>
