@@ -12,12 +12,14 @@ export default {
                 test: 'lang'
             }
         ],
+        pronounciation: {}
     },
     getters: {
         stories: state => state.stories,
         story: state => state.story,
         terms: state => state.terms,
         sentences: state => state.sentences,
+        pronounciation: state => state.pronounciation
     },
     mutations: {
         setStories(state, payload) {
@@ -31,6 +33,9 @@ export default {
         },
         setTerms(state, payload) {
             state.terms = payload
+        },
+        setPronounciation(state, payload) {
+            state.pronounciation = payload
         }
     },
     actions: {
@@ -66,6 +71,12 @@ export default {
                     
                 }
             })
+        },
+        computePronounciation({ commit }, payload) {
+            axios.post(`/calculate-pronounciation`, payload)
+            .then(response => {
+                commit('setPronounciation', response)
+            });
         }
     }
 }

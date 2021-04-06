@@ -1,6 +1,6 @@
 import { Loading, QSpinnerAudio, QSpinnerBars, Platform } from 'quasar'
 export default async ({ Vue }) => {
-  const lang = 'en-US'
+  const lang = 'en-UK'
   Vue.prototype.$speechTalkCordova = (text) => {
     return new Promise((resolve, reject) => {
       if (Platform.is.cordova) {

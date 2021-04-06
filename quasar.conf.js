@@ -20,7 +20,7 @@ module.exports = function (/* ctx */) {
     boot: [
       'axios',
       'i18n',
-      'speechCordova'
+      'speech'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -95,7 +95,8 @@ module.exports = function (/* ctx */) {
       // Quasar plugins
       plugins: [
         "LocalStorage",
-        "Loading"
+        "Loading",
+        'Dialog'
       ]
     },
 

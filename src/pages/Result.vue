@@ -5,7 +5,7 @@
                 <q-btn clickable :to="'/menu'" round color="primary" icon="keyboard_arrow_left" />
             </div>
         </div>
-        <q-layout view="lHh Lpr lFf" container style="height: 500px" class="rounded-borders">
+        <q-layout view="lHh Lpr lFf" container v-bind:style="{ height: mobileHeight + 'px' }" class="rounded-borders">
             <q-intersection
                 v-for="(story, index) in stories"
                 :key="story.id"
@@ -51,7 +51,7 @@ export default {
   name: 'PageIndex',
   data() {
       return {
-
+        mobileHeight: window.innerHeight - 50
       }
   },
   computed: {

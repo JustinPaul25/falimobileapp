@@ -40,7 +40,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container class="full-height">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -55,7 +55,31 @@ const linksData = [
     title: 'Home',
     caption: '',
     icon: 'house',
-    link: '/'
+    link: '/menu'
+  },
+  {
+    title: 'Stories',
+    caption: '',
+    icon: 'book',
+    link: '/stories'
+  },
+  {
+    title: 'Tutorials',
+    caption: '',
+    icon: 'book',
+    link: '/tutorials'
+  },
+  {
+    title: 'Results',
+    caption: '',
+    icon: 'assessment',
+    link: `/result`
+  },
+  {
+    title: 'Progress',
+    caption: '',
+    icon: 'assessment',
+    link: '/progress'
   },
   {
     title: 'Account Settings',
@@ -75,7 +99,11 @@ export default {
       title: 'FALI Reading Comprehension'
     }
   },
-
+  computed: {
+      ...mapGetters({
+          student: 'user/details'
+      }),
+  },
   watch: {
     $route(to, from) {
       if(to.path == "/menu") {
