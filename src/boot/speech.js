@@ -1,7 +1,7 @@
 import { Loading, QSpinnerAudio, QSpinnerBars, Platform } from 'quasar'
 
 export default async ({ Vue }) => {
-  const lang = 'en-UK'
+  const lang = 'tl-PH'
   Vue.prototype.$speechTalkCordova = (text) => {
     return new Promise((resolve, reject) => {
       if (Platform.is.cordova) {
@@ -52,7 +52,7 @@ export default async ({ Vue }) => {
   const recognition = SpeechRecognition ? new SpeechRecognition() : false
 
   Vue.prototype.$speechToText = {
-    start: (lang = 'pt-BR', message = '', continuous = false) => {
+    start: (lang = 'tl-PH', message = '', continuous = false) => {
       return new Promise((resolve, reject) => {
         let text = ''
         setTimeout(() => {

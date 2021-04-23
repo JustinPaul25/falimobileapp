@@ -48,6 +48,7 @@ export default {
             })
         },
         getStory({ commit, dispatch }, payload) {
+            commit('setStory', {})
             axios.get(`/api/story/${payload.id}`)
             .then(response => {
                 if(response != null) {

@@ -4,7 +4,7 @@ import axios from "axios";
 function login({ commit }, payload) {
   Loading.show();
   this.$router.push("/");
-
+  return
 //   axios
 //     .get("/sanctum/csrf-cookie")
 //     .then(() => {

@@ -8,6 +8,23 @@
             width="65%"
                 >
         </div>
+        <q-dialog
+        v-model="openPrompt"
+        >
+        <q-card style="width: 300px">
+            <q-card-section>
+            <div class="text-h6">Login Error</div>
+            </q-card-section>
+
+            <q-card-section class="q-pt-none">
+                Invalid Username or Password
+            </q-card-section>
+
+            <q-card-actions align="right" class="bg-white text-teal">
+            <q-btn flat label="OK" v-close-popup />
+            </q-card-actions>
+        </q-card>
+        </q-dialog>
         <q-card class="q-card full-height full-width q-px-lg q-mb-auto bg-transparent q-border-radius no-box-shadow">
             <q-card-section class="bg-white q-mb-lg">
                 <div class="row text-h7 text-weight-bolder text-primary">
@@ -54,7 +71,8 @@ export default {
             username:'',
             password:'',
             isPwd: true,
-            dense: false
+            dense: false,
+            openPrompt: false
         }
     },
     computed: {
@@ -68,6 +86,10 @@ export default {
             this.login({
                 username: this.username,
                 password: this.password
+            }).then( response => {
+                if(response == false) {
+                    this.openPrompt = true
+                }
             })
         }
     },

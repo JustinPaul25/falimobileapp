@@ -29,14 +29,14 @@
         </div>
       </div>
     </q-btn>
-    <q-btn @click="logout()" :size="'lg'" class="full-width" color="primary" push>
+    <!-- <q-btn @click="logout()" :size="'lg'" class="full-width" color="primary" push>
       <div class="row items-center no-wrap">
         <q-icon left name="exit_to_app" />
         <div class="text-center text-weight-bold">
           Logout
         </div>
       </div>
-    </q-btn>
+    </q-btn> -->
   </q-page>
 </template>
 

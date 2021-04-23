@@ -99,7 +99,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import { mapActions } from 'vuex'
-import { QSpinnerBars } from 'quasar'
+import { Loading, QSpinnerBars } from 'quasar'
 import { Dialog } from 'quasar'
 import axios from "axios";
 
@@ -170,6 +170,7 @@ export default {
             this.sentencesDummy = this.sentences
           }) 
           this.checkGrade();
+          this.$q.loading.hide()
       },
       getGrade() {
         this.getGrades({
@@ -204,7 +205,7 @@ export default {
           })          
       },
       async nextPage() {
-            this.showNextButton = true
+            this.showNextButton = false
             this.checkError = false
             await this.computeResult()
             if(this.page < this.sentencesLength) {
@@ -386,6 +387,12 @@ export default {
     if(!this.loggedIn) {
       this.$router.push("/login");
     } else {
+    this.$q.loading.show({
+        spinner: QSpinnerBars, // ms,
+        backgroundColor: 'primary',
+        message: 'Fetching Story',
+        messageColor: 'white'
+    })
       this.getData();
       this.getGrade();
     }

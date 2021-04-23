@@ -37,6 +37,14 @@
           :key="link.title"
           v-bind="link"
         />
+        <q-btn @click="logout()" :size="'lg'" class="full-width q-mt-md" color="primary" push>
+          <div class="row items-center no-wrap">
+            <q-icon left name="exit_to_app" />
+            <div class="text-center text-weight-bold">
+              Logout
+            </div>
+          </div>
+        </q-btn>
       </q-list>
     </q-drawer>
 
@@ -49,6 +57,7 @@
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
 import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 const linksData = [
   {
@@ -124,6 +133,14 @@ export default {
         this.title = 'FALI Reading Comprehension'
       }
     }
+  },
+
+  methods: {
+    ...mapActions('user', ['logout']),
+    ...mapActions('grade', ['getGrades']),
+      onLogout() {
+          this.logout()
+      },
   },
 
   computed: {

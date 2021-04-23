@@ -22,16 +22,20 @@ export default {
         },
     },
     actions: {
-        login({ commit }, payload) {
-            axios.post("/api/student-login", payload)
+        async login({ commit }, payload) {
+            var returnResult = true;
+            await axios.post("/api/student-login", payload)
             .then(response => {
                 if(response.data != false) {
                     this.$router.push("/menu");
                     commit('setLoggedIn', true)
                     commit('setDetails', response.data)
                     LocalStorage.set("user.loggedIn", true);
+                } else {
+                   returnResult = false
                 }
             })
+            return returnResult
         },
         logout({ commit }) {
             console.log('test')
